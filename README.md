@@ -1,9 +1,9 @@
-# vue3-typescript-tailwind
+# the-local-weather
 # Vue 3 + Typescript + Taildwind Template
-### Simple Vue + Typescript + Taildwind + Firebase + Template
+### Simple Wather App Vue + Typescript + Taildwind + Firebase
 **DEMO:** <a href="https://vue3-typescript-template.web.app/" target="_blank">https://vue3-typescript-template.web.app</a>
 
-![Magic Memory Game]( vue3-template.png "Magic Memory Game")
+![The Local Weather]( vue3-template.png "The Local Weather")
 ## Project setup
 ```
 npm install

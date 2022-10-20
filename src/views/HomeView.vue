@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <Search
+      @error="onError"
+    />
     <Hero />
     <section>
       <section class="text-gray-600 body-font">
@@ -30,6 +33,8 @@ import { defineComponent } from 'vue';
 import Avatar from '@/components/Avatar.vue'
 import Cards from '@/components/Cards.vue'
 import Hero from '@/components/Hero.vue'
+import Search from '@/components/Search.vue'
+import { ElNotification } from 'element-plus'
 
 export default defineComponent({
   name: 'HomeView',
@@ -37,6 +42,17 @@ export default defineComponent({
     Avatar,
     Cards,
     Hero,
+    Search,
+  },
+  methods: {
+    onError(error: any) {
+      ElNotification({
+        title: 'Error',
+        message: error.message,
+        duration: 5000,
+        type: 'error'
+      })
+    }
   }
 })
 </script>
