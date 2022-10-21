@@ -1,7 +1,7 @@
 # the-local-weather
 # Vue 3 + Typescript + Taildwind Template
 ### Simple Wather App Vue + Typescript + Taildwind + Firebase
-**DEMO:** <a href="https://vue3-typescript-template.web.app/" target="_blank">https://vue3-typescript-template.web.app</a>
+**DEMO:** <a href="https://the-local-weather-2055.web.app/" target="_blank">https://the-local-weather-2055.web.app</a>
 
 ![The Local Weather]( vue3-template.png "The Local Weather")
 ## Project setup

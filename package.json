@@ -9,7 +9,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve",
-    "deploy:firebase": "vue-cli-service build && firebase deploy --only hosting:vue3-typescript-template"
+    "deploy:firebase": "vue-cli-service build && firebase deploy --only hosting:the-local-weather-2055"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.3",
