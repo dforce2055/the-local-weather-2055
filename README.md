@@ -3,7 +3,7 @@
 ### Simple Wather App Vue + Typescript + Taildwind + Firebase
 **DEMO:** <a href="https://the-local-weather-2055.web.app/" target="_blank">https://the-local-weather-2055.web.app</a>
 
-![The Local Weather]( vue3-template.png "The Local Weather")
+![The Local Weather App]( ./public/favicon.png "The Local Weather App")
 ## Project setup
 ```
 npm install
