@@ -40,7 +40,14 @@
         clearable
         placeholder="Search for a City or State ..."
         @input="callApi"
+        @selected="previewCity"
       />
+      <p
+        class="py-2 cursor-pointer text-slate-500 italic hover:underline"
+        v-if="noResults"
+      >
+        No results
+      </p>
     </section>
   </div>
 </template>
@@ -50,6 +57,10 @@ import { defineComponent, ref, computed } from 'vue'
 import { useGeolocation, useDebounceFn } from '@vueuse/core'
 import axios from 'axios'
 import Autocomplete from './Autocomplete.vue'
+import {
+  LocationFeatureApiDto,
+  LocationUI
+} from '../types'
 
 export default defineComponent({
   setup(props, context) {
@@ -75,7 +86,7 @@ export default defineComponent({
         // const url = `https://api.mapbox.com/geocoding/v5/${endpoint}/${coords.latitude},${coords.longitude}.json?access_token=${apiKey}`
         const { data } = await axios(url);
         if (data)
-          searchResults.value = data.features.map((item: any) => {
+          searchResults.value = data.features.map((item: LocationFeatureApiDto) => {
             return {
               value: item.place_name,
               ...item
@@ -105,14 +116,25 @@ export default defineComponent({
   },
   components: { Autocomplete },
   data: () => ({
-    items: [
-      { value: 'vue', link: 'https://github.com/vuejs/vue' },
-      { value: 'element', link: 'https://github.com/ElemeFE/element' },
-    ]
   }),
   methods: {
     handleSelect() {
-      this.$emit('handleSelect');
+      this.$emit('handleSelect')
+    },
+    previewCity(citySelected: LocationFeatureApiDto) {
+      try {
+        const [city, state, country] = citySelected.place_name.split(',')
+
+        const LocationUI: LocationUI = {
+          ...citySelected,
+          city: city.trim(),
+          state: state.trim(),
+          country: country.trim()
+        }
+        this.$emit('city-selected', LocationUI)
+      } catch (error) {
+        this.$emit('error', error)
+      }
     }
   },
 })

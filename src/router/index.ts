@@ -1,13 +1,19 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import PricingView from '../views/PricingView.vue';
-import SingUp from '../views/SingUp.vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import PricingView from '../views/PricingView.vue'
+import SingUp from '../views/SingUp.vue'
+import CityView from '../views/CityView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
     component: HomeView,
+  },
+  {
+    path: '/weather/:country/:state/:city',
+    name: 'city',
+    component: CityView,
   },
   {
     path: '/pricing',
@@ -27,11 +33,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'singup',
     component: SingUp,
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-});
+})
 
-export default router;
+export default router

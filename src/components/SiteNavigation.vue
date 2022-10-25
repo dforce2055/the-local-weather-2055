@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 bg-primary shadow-lg">
+  <header class="bg-primary shadow-lg">
     <nav class="container flex flex-col sm:flex-row items-center gap-4 py-6">
       <router-link
         to="/"
@@ -9,24 +9,34 @@
             name="weather-sunny"
             size="32"
           />
-          <p class="text-2xl text-white">
+          <p class="text-2xl font-sans text-white">
             The Local Weather
           </p>
         </div>
       </router-link>
       <div class="flex gap-3 flex-1 text-xl justify-end text-white">
-        <mdicon
-          @click="onOpenModal"
-          class="hover:text-warning cursor-pointer duration-200"
-          name="information"
-          size="20"
-        />
-        <mdicon
-          @click="onTest"
-          class="hover:text-warning cursor-pointer duration-200"
-          name="plus"
-          size="20"
-        />
+        <div
+          class="tooltip"
+          data-tip="More info"
+        >
+          <mdicon
+            @click="onOpenModal"
+            class="hover:text-warning cursor-pointer duration-200"
+            name="information"
+            size="20"
+          />
+        </div>
+        <div
+          class="tooltip"
+          data-tip="Add"
+        >
+          <mdicon
+            @click="addCity"
+            class="hover:text-warning cursor-pointer duration-200"
+            name="plus"
+            size="20"
+          />
+        </div>
       </div>
     </nav>
     <Modal
@@ -40,6 +50,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Modal from './Modal.vue'
+import {
+  CITY_TYPE,
+  LocationUI
+} from '../types'
 
 export default defineComponent({
   name: 'SiteNavigation',
@@ -54,8 +68,39 @@ export default defineComponent({
     onOpenModal() {
       this.openModal = true
     },
-    onTest() {
-      this.$emit('testing')
+    addCity() {
+      try {
+
+        let savedCities: LocationUI[] = []
+
+        if (localStorage.getItem('saved-cities'))
+          savedCities = JSON.parse(localStorage.getItem('saved-cities') || '')
+
+        const locationObject: LocationUI = {
+          id: Date.now(), // random id
+          city: this.$route.params.city as string,
+          state: this.$route.params.state as string,
+          country: this.$route.params.country as string,
+          coords: {
+            lat: this.$route.query.lat as string,
+            lng: this.$route.query.lng as string
+          },
+          place_name: '',
+          text: '',
+          type: CITY_TYPE.FEATURE
+        }
+
+        savedCities.push(locationObject)
+        localStorage.setItem('saved-cities', JSON.stringify(savedCities))
+        this.$emit('add-city-to-localstorage')
+
+        let query = Object.assign({}, this.$route.query)
+        delete query.preview
+        this.$router.replace({ query })
+
+      } catch (error) {
+        this.$emit('error', error)
+      }
     }
   }
 })

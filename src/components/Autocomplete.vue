@@ -6,7 +6,14 @@
     :placeholder="placeholder"
     @select="handleSelect"
     @input="handleInput"
-    class="mt-4 py-2 input input-bordered w-full max-w-xs"
+    class="mt-4 py-2 input input-bordered w-full max-w-xs
+    focus:border-sky-500
+    hover:border-sky-500
+    target:border-sky-500
+    input:border-sky-500
+    active:border-sky-500
+    focus-visible:border-sky-500
+    "
   />
 </template>
 
@@ -84,6 +91,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
+
 .el-input__wrapper {
   padding: 0px !important;
   border: none !important;

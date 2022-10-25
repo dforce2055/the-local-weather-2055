@@ -2,7 +2,9 @@
   <div class="home">
     <Search
       @error="onError"
+      @city-selected="onSelecCity"
     />
+    <CityList />
     <Hero />
     <section>
       <section class="text-gray-600 body-font">
@@ -34,13 +36,17 @@ import Avatar from '@/components/Avatar.vue'
 import Cards from '@/components/Cards.vue'
 import Hero from '@/components/Hero.vue'
 import Search from '@/components/Search.vue'
+import CityList from '@/components/CityList.vue'
 import { ElNotification } from 'element-plus'
-
+import {
+  LocationUI
+} from '../types'
 export default defineComponent({
   name: 'HomeView',
   components: {
     Avatar,
     Cards,
+    CityList,
     Hero,
     Search,
   },
@@ -51,6 +57,21 @@ export default defineComponent({
         message: error.message,
         duration: 5000,
         type: 'error'
+      })
+    },
+    onSelecCity(location: LocationUI) {
+      this.$router.push({
+        name: 'city',
+        params: {
+          city: location.city.toLocaleLowerCase().replaceAll(' ', '-'),
+          state: location.state.toLocaleLowerCase().replaceAll(' ', '-'),
+          country: location.country.toLocaleLowerCase().replaceAll(' ', '-'),
+        },
+        query: {
+          lat: location.geometry?.coordinates[1],
+          lng: location.geometry?.coordinates[0],
+          preview: 'true'
+        }
       })
     }
   }
