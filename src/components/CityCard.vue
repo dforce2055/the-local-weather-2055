@@ -1,7 +1,8 @@
 <template>
   <div
     v-if="location"
-    class="container px-1 py-4 mx-auto">
+    class="container px-1 py-4 mx-auto"
+  >
     <div class="flex items-center lg:w-2/6 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
       <div class="sm:w-26 sm:h-26 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-sky-100 text-sky-500 flex-shrink-0">
         <img

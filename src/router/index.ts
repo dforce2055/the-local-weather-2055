@@ -55,7 +55,7 @@ const router = createRouter({
   routes,
   scrollBehavior() {
     // always scroll to top
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ left: 0, top: 0 })
       }, 500)
