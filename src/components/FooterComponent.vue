@@ -216,13 +216,13 @@
         </span>
       </div>
     </div>
-    <div class="bg-gray-100">
+    <div class="bg-gray-100 dark:bg-gray-900">
       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
         <p class="text-gray-500 text-sm text-center sm:text-left">
           © {{ new Date().getFullYear() }} dforce2055 —
           <a
             href="https://www.linkedin.com/in/diego-p%C3%A9rez-22180a142/"
-            class="text-gray-600 ml-1"
+            class="text-gray-600 ml-1 dark:text-primary"
             target="_blank"
             rel="noopener noreferrer"
           >@dforce2055</a>

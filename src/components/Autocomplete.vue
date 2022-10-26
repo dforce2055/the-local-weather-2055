@@ -13,6 +13,8 @@
     input:border-sky-500
     active:border-sky-500
     focus-visible:border-sky-500
+    dark:text-primary
+    dark:bg-gray-800
     "
   />
 </template>
@@ -104,5 +106,9 @@ export default defineComponent({
   color: var(--form-input-color) !important;
   font: var(--font-family-inter) !important;
   font-size: 1rem !important;
+}
+.dark .el-input__inner {
+  color: theme('colors.sky.300') !important;
+  background-color: theme('colors.gray.800') !important;
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap -m-4">
         <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+          <div class="h-full dark:bg-gray-600 dark:text-gray-100 bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
             <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               CATEGORY
             </h2>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+          <div class="h-full dark:bg-gray-600 dark:text-gray-100 bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
             <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               CATEGORY
             </h2>
@@ -124,7 +124,7 @@
           </div>
         </div>
         <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+          <div class="h-full dark:bg-gray-600 dark:text-gray-100 bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
             <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               CATEGORY
             </h2>

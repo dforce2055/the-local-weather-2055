@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-primary shadow-lg">
+  <header class="bg-primary dark:bg-gray-900 shadow-lg">
     <nav class="container flex flex-col sm:flex-row items-center gap-4 py-6">
       <router-link
         to="/"
@@ -9,14 +9,14 @@
             name="weather-sunny"
             size="32"
           />
-          <p class="text-2xl font-sans text-white">
+          <p class="text-2xl font-sans text-white dark:text-primary">
             The Local Weather
           </p>
         </div>
       </router-link>
       <div class="flex gap-3 flex-1 text-xl justify-end text-white">
         <div
-          class="tooltip"
+          class="tooltip tooltip-bottom"
           data-tip="More info"
         >
           <mdicon
@@ -27,7 +27,7 @@
           />
         </div>
         <div
-          class="tooltip"
+          class="tooltip tooltip-bottom"
           data-tip="Add"
         >
           <mdicon
@@ -37,6 +37,7 @@
             size="20"
           />
         </div>
+        <DarkModeSelector />
       </div>
     </nav>
     <Modal
@@ -50,6 +51,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Modal from './Modal.vue'
+import DarkModeSelector from './DarkModeSelector.vue'
 import { ElNotification } from 'element-plus'
 import {
   CITY_TYPE,
@@ -59,7 +61,8 @@ import {
 export default defineComponent({
   name: 'SiteNavigation',
   components: {
-    Modal
+    Modal,
+    DarkModeSelector,
   },
   data: () => ({
     darkMode: false,
