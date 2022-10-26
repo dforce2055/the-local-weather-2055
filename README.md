@@ -1,6 +1,6 @@
 # the-local-weather
-# Vue 3 + Typescript + Taildwind Template
-### Simple Wather App Vue + Typescript + Taildwind + Firebase
+# Vue 3 + Typescript + Tailwind Template
+### Simple Wather App Vue + Typescript + Tailwind + Firebase
 **DEMO:** <a href="https://the-local-weather-2055.web.app/" target="_blank">https://the-local-weather-2055.web.app</a>
 
 ![The Local Weather App]( ./public/favicon.png "The Local Weather App")
