@@ -2,7 +2,14 @@
   <section class="flex flex-col min-h-screen">
     <NavBar v-if="false" />
     <SiteNavigation />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition
+        name="page"
+        mode="out-in"
+      >
+        <component :is="Component" />
+      </Transition>
+    </router-view>
     <FooterComponent />
   </section>
 </template>
@@ -24,10 +31,19 @@ export default defineComponent({
 </script>
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: 100ms ease all;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
 </style>

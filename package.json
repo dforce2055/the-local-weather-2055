@@ -2,7 +2,7 @@
   "name": "the-local-weather",
   "version": "0.1.0",
   "private": true,
-  "developer": "dforce2055 <dperez2055@gmail.com",
+  "developer": "dforce2055 <dperez2055@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

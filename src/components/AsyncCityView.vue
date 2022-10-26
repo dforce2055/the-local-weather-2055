@@ -1,6 +1,6 @@
 <template>
   <section class="">
-    <Skeleton
+    <SkeletonAsyncCityView
       v-if="loading"
     />
     <section
@@ -9,7 +9,7 @@
     >
       <!-- Banner -->
       <div
-        v-if="$route.query.preview"
+        v-if="!cityWasSaved"
         class="w-full text-center bg-gray-100 p-4"
       >
         <p class="text-gray-500">
@@ -109,6 +109,22 @@
           </div>
         </div>
       </div>
+
+      <!-- Remove City -->
+      <div
+        v-if="cityWasSaved"
+        class="flex items-center gap-2 text-red-200 cursor-pointer
+        duration-150 hover:text-red-500"
+        @click="removeCity"
+      >
+        <mdicon
+          name="trash"
+          size="32"
+        />
+        <p>
+          Remove the city
+        </p>
+      </div>
     </section>
   </section>
 </template>
@@ -116,27 +132,47 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from 'axios'
-import Skeleton from '@/components/Skeleton.vue'
+import SkeletonAsyncCityView from '@/components/SkeletonAsyncCityView.vue'
+import { ElNotification } from 'element-plus'
 import {
-  OpenWeatherDataApiDto
+  OpenWeatherDataApiDto,
+  LocationUI,
 } from '../types'
 import { LocationQueryValue } from 'vue-router'
 
 export default defineComponent({
   name: 'AsyncCityView',
   components: {
-    Skeleton,
+    SkeletonAsyncCityView,
   },
   data: () => ({
     weatherData: {} as OpenWeatherDataApiDto,
     loading: true
   }),
+  computed: {
+    cityWasSaved() {
+      const preview = this.$route.query?.preview || 'false'
+      return preview === 'false' ? true : false
+    }
+  },
   async beforeMount() {
     try {
+      const city = this.$route.params.city as string
       const lat = this.$route.query.lat as string
       const lng = this.$route.query.lng as string
 
       this.weatherData = await this.getWeatherData(lat, lng)
+
+      if (localStorage.getItem('saved-cities')) {
+        const savedCities = JSON.parse(localStorage.getItem('saved-cities') || '')
+        const cityFunded = savedCities.find((location: LocationUI) => location.city === city)
+
+        if (cityFunded) {
+          let query = Object.assign({}, this.$route.query)
+          query.preview = 'false'
+          this.$router.replace({ query })
+        }
+      }
     } catch (error) {
       this.$emit('error', error)
     }
@@ -197,7 +233,33 @@ export default defineComponent({
         this.$emit('error', error)
         return name
       }
-    }
+    },
+    removeCity() {
+      try {
+        const city = this.$route.params.city as string
+
+        if (localStorage.getItem('saved-cities')) {
+          const savedCities = JSON.parse(localStorage.getItem('saved-cities') || '')
+          const newCities = savedCities.
+            filter((location: LocationUI) => location.city !== city)
+
+          localStorage.setItem('saved-cities', JSON.stringify(newCities))
+
+          this.onSuccessRemoveCity()
+          this.$router.push({ name: 'home' })
+        }
+      } catch (error) {
+        this.$emit('error', error)
+      }
+    },
+    onSuccessRemoveCity() {
+      ElNotification({
+        title: 'Info',
+        message: 'City was successfully deleted',
+        duration: 2500,
+        type: 'info'
+      })
+    },
   }
 })
 

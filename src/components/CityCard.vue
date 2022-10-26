@@ -28,7 +28,10 @@
         <p class="text-gray-500">
           {{ getCurrenTime(location.weatherData?.timezone || '') }}
         </p>
-        <button class="btn btn-outline btn-primary mt-4">
+        <button
+          class="btn btn-outline btn-primary mt-4"
+          @click="$emit('more-details', location)"
+        >
           More details
         </button>
       </div>

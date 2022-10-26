@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Skeleton
+    <SkeletonCityCard
       v-if="loading"
     />
     <section v-else>
@@ -11,6 +11,7 @@
         <CityCard
           :location="city"
           class="flex justify-center w-12/12"
+          @more-details="goToCityView"
         />
       </div>
       <p
@@ -26,7 +27,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from 'axios'
-import Skeleton from '@/components/Skeleton.vue'
+import SkeletonCityCard from '@/components/SkeletonCityCard.vue'
 import CityCard from '@/components/CityCard.vue'
 import {
   LocationUI,
@@ -36,7 +37,7 @@ export default defineComponent({
   name: 'CityList',
   components: {
     CityCard,
-    Skeleton,
+    SkeletonCityCard,
   },
   data: () => ({
     loading: false,
@@ -80,7 +81,6 @@ export default defineComponent({
       }
     },
     goToCityView(location: LocationUI) {
-      console.log('goToCityView', location)
       this.$router.push({
         name: 'city',
         params: {
@@ -89,12 +89,12 @@ export default defineComponent({
           country: location.country.toLocaleLowerCase().replaceAll(' ', '-'),
         },
         query: {
-          lat: location.geometry?.coordinates[1],
-          lng: location.geometry?.coordinates[0],
-          preview: 'true'
+          lat: location.weatherData?.lat,
+          lng: location.weatherData?.lon,
+          preview: 'false'
         }
       })
-    }
+    },
   }
 })
 

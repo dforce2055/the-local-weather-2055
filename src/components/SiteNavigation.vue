@@ -50,6 +50,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Modal from './Modal.vue'
+import { ElNotification } from 'element-plus'
 import {
   CITY_TYPE,
   LocationUI
@@ -98,10 +99,19 @@ export default defineComponent({
         delete query.preview
         this.$router.replace({ query })
 
+        this.onSuccessAddCity()
       } catch (error) {
         this.$emit('error', error)
       }
-    }
+    },
+    onSuccessAddCity() {
+      ElNotification({
+        title: 'Success',
+        message: 'City added successfully',
+        duration: 3500,
+        type: 'success'
+      })
+    },
   }
 })
 </script>
