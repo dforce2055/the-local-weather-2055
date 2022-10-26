@@ -5,8 +5,9 @@
 
 <div align="center">
   <img 
-    src="./public/favicon.png" 
-    alt="The Local Weather App" 
+    src="./public/favicon.png"
+    alt="The Local Weather App"
+    width="200px"
     style="max-width:200px;"
   />
 </div>
