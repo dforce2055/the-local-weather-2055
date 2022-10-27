@@ -37,7 +37,7 @@ export default defineComponent({
   name: 'DarkModeSelector',
   props: {
     size: {
-      type: Number,
+      type: [Number, String],
       default: 5,
       required: false
     }
@@ -67,6 +67,7 @@ export default defineComponent({
   methods: {
     getTheme() {
       this.key = localStorage.getItem('theme') || 'dark'
+      this.darkMode = this.key === 'dark' ? true : false
       return this.key
     },
   },

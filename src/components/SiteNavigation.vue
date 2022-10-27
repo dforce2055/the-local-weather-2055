@@ -1,14 +1,13 @@
 <template>
   <header class="bg-primary dark:bg-gray-900 shadow-lg">
-    <nav class="container flex flex-col sm:flex-row items-center gap-4 py-6">
+    <nav class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
+      <DarkModeSelector
+        :size="10"
+      />
       <router-link
         to="/"
       >
         <div class="flex items-center gap-3 text-warning text-2xl">
-          <mdicon
-            name="weather-sunny"
-            size="32"
-          />
           <p class="text-2xl font-sans text-white dark:text-primary">
             The Local Weather
           </p>
@@ -37,7 +36,6 @@
             size="20"
           />
         </div>
-        <DarkModeSelector />
       </div>
     </nav>
     <Modal
