@@ -53,7 +53,8 @@ import DarkModeSelector from './DarkModeSelector.vue'
 import { ElNotification } from 'element-plus'
 import {
   CITY_TYPE,
-  LocationUI
+  ROUTES_PATH,
+  LocationUI,
 } from '../types'
 
 export default defineComponent({
@@ -72,6 +73,10 @@ export default defineComponent({
     },
     addCity() {
       try {
+
+        const currentPathName = this.$router.currentRoute.value.name
+        if (currentPathName !== ROUTES_PATH.CITY)
+          return
 
         let savedCities: LocationUI[] = []
 
@@ -109,8 +114,8 @@ export default defineComponent({
       ElNotification({
         title: 'Success',
         message: 'City added successfully',
-        duration: 3500,
-        type: 'success'
+        duration: 2500,
+        type: 'success',
       })
     },
   }

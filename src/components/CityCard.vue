@@ -20,7 +20,7 @@
         </span>
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-        <h2 class="text-gray-900 text-lg title-font mb-2 capitalize font-bold">
+        <h2 class="text-gray-900 dark:text-gray-200 text-lg title-font mb-2 capitalize font-bold">
           {{ getNameFormated(location.city) }}
         </h2>
         <p class="leading-relaxed text-base capitalize">

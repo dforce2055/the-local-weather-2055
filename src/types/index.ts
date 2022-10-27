@@ -1,3 +1,7 @@
+export enum ROUTES_PATH {
+  CITY = 'city'
+}
+
 export enum CITY_TYPE {
   FEATURE = 'Feature'
 }

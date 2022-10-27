@@ -58,17 +58,19 @@ export default defineComponent({
 
         const apiKey = process.env.VUE_APP_OPEN_WEATHER
 
-        const requests = savedCities.map(async (city) => {
-          const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${city.coords?.lat}&lon=${city.coords?.lng}&exclude={part}&appid=${apiKey}&units=metric`
-          const result = await axios.get(url)
-          return result.data
-        })
+        if (savedCities.length > 0) {
+          const requests = savedCities.map(async (city) => {
+            const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${city.coords?.lat}&lon=${city.coords?.lng}&exclude={part}&appid=${apiKey}&units=metric`
+            const result = await axios.get(url)
+            return result.data
+          })
 
-        const weatherData = await Promise.all(requests)
+          const weatherData = await Promise.all(requests)
 
-        weatherData.map((data, index) => {
-          savedCities[index].weatherData = { ...data }
-        })
+          weatherData.map((data, index) => {
+            savedCities[index].weatherData = { ...data }
+          })
+        }
 
         this.loading = false
         return savedCities as LocationUI[]

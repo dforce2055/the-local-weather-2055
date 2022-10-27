@@ -10,9 +10,9 @@
       <!-- Banner -->
       <div
         v-if="!cityWasSaved"
-        class="w-full text-center p-4 bg-white dark:bg-gray-800"
+        class="w-full text-center p-4 bg-gray-200 dark:bg-gray-800 dark:text-gray-200"
       >
-        <p class="text-gray-500  bg-white dark:bg-gray-800">
+        <p class="text-gray-500 bg-gray-200 dark:bg-gray-800 dark:text-gray-200">
           You are currently previewing this city, click the "+"
           icon to start tracking this city.
         </p>
