@@ -29,6 +29,7 @@ import { ElNotification } from 'element-plus'
 import {
   LocationUI
 } from '../types'
+
 export default defineComponent({
   name: 'HomeView',
   components: {
@@ -36,7 +37,7 @@ export default defineComponent({
     CityList,
     DownloadApp,
     Search,
-    Stats
+    Stats,
   },
   methods: {
     onError(error: any) {

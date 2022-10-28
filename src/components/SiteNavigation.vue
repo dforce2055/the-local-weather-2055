@@ -36,6 +36,7 @@
             size="20"
           />
         </div>
+        <LanguageSelector />
       </div>
     </nav>
     <Modal
@@ -50,6 +51,7 @@
 import { defineComponent } from 'vue'
 import Modal from './Modal.vue'
 import DarkModeSelector from './DarkModeSelector.vue'
+import LanguageSelector from './LanguageSelector.vue'
 import { ElNotification } from 'element-plus'
 import {
   CITY_TYPE,
@@ -62,6 +64,7 @@ export default defineComponent({
   components: {
     Modal,
     DarkModeSelector,
+    LanguageSelector,
   },
   data: () => ({
     darkMode: false,
