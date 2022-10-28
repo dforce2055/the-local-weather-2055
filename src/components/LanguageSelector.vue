@@ -29,7 +29,7 @@
         @click="closeAfterSelectAnOption"
       >
         <a
-          @click="$i18n.locale = lang"
+          @click="updateLanguage(lang)"
           class="text-gray-600 dark:text-gray-100 text-xs"
           :class="lang === $i18n.locale ? 'text-sky-500 dark:text-sky-300' : 'text-'"
         >
@@ -54,11 +54,22 @@ export default defineComponent({
   data () {
     return { langs: ['en', 'es'] }
   },
+  mounted() {
+    if (sessionStorage.getItem('locale'))
+      this.$i18n.locale = sessionStorage.getItem('locale') || 'en';
+    else
+      sessionStorage.setItem('locale', this.$i18n.locale);
+
+  },
   methods: {
     closeAfterSelectAnOption() {
       if (document.activeElement instanceof HTMLElement)
         document.activeElement.blur()
-    }
+    },
+    updateLanguage(language: string) {
+      this.$i18n.locale = language
+      sessionStorage.setItem('locale', this.$i18n.locale);
+    },
   }
 })
 </script>
