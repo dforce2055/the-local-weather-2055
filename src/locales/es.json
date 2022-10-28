@@ -1,4 +1,18 @@
 {
-  "message": "hola i18n !!",
-  "language-selector": "Selector de Lenguaje"
+  "app-title": "El clíma local",
+  "language-selector": "Selector de Lenguaje",
+  "more-info": "Más información",
+  "add": "Agregar",
+  "add-city": "Agregar ciudad",
+  "remove-city": "Eliminar ciudad",
+  "more-details": "Más detalles",
+  "no-locations-added": "No hay ubicaciones agregadas. Para comenzar a seguir una ubicación, busque en el campo a continuación.",
+  "start-tracking": "Actualmente esta previsualizando esta ciudad, haga click en el icon \"+\" para comenzar a seguir esta ciudad.",
+  "feels-like": "Sensacion térmica",
+  "hourly-weather": "Clíma por hora",
+  "7-days-forecast": "Previsión de 7 días",
+  "no-results": "Sin resultados",
+  "latitude": "Latitud",
+  "longitude": "Longitud",
+  "search-city-state": "Buscar por ciudad ó estado ..."
 }

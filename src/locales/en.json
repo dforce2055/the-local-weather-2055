@@ -1,4 +1,18 @@
 {
-  "message": "hello i18n !!",
-  "language-selector": "Language Selector"
+  "app-title": "The Local Weather",
+  "language-selector": "Language Selector",
+  "more-info": "More info",
+  "add": "Add",
+  "add-city": "Add City",
+  "remove-city": "Remove City",
+  "more-details": "More details",
+  "no-locations-added": "No locations added. To start tracking a location, search in the field above.",
+  "start-tracking": "You are currently previewing this city, click the \"+\"  icon to start tracking this city.",
+  "feels-like": "Feels like",
+  "hourly-weather": "Hourly Weather",
+  "7-days-forecast": "7 Day Forecast",
+  "no-results": "No results",
+  "latitude": "Latitude",
+  "longitude": "Longitude",
+  "search-city-state": "Search for a City or State ..."
 }

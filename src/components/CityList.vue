@@ -18,7 +18,7 @@
         v-if="cities.length === 0"
         class="shadow-sm bg-gray-100 text-gray-500  dark:text-gray-100 dark:bg-slate-800  border-sky-300 my-4 p-4 "
       >
-        No locations added. To start tracking a location, search in the field above.
+        {{ $t('no-locations-added') }}
       </p>
     </section>
   </section>

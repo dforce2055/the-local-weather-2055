@@ -13,8 +13,7 @@
         class="w-full text-center p-4 bg-gray-200 dark:bg-gray-800 dark:text-gray-200"
       >
         <p class="text-gray-500 bg-gray-200 dark:bg-gray-800 dark:text-gray-200">
-          You are currently previewing this city, click the "+"
-          icon to start tracking this city.
+          {{ $t('start-tracking') }}
         </p>
       </div>
 
@@ -33,7 +32,7 @@
         </p>
         <div class="text-center">
           <p>
-            Feels like
+            {{ $t('feels-like') }}
             {{ Math.round(weatherData?.current?.feels_like) }}&deg;
           </p>
           <p class="capitalize">
@@ -53,7 +52,7 @@
       <div class="max-w-screen-md w-full py-12">
         <div class="mx-8 text-gray-500">
           <h2 class="mb-4">
-            Hourly Weather
+            {{ $t('hourly-weather') }}
           </h2>
           <div class="flex gap-10 overflow-x-scroll scrollbar">
             <div
@@ -83,7 +82,7 @@
       <div class="max-w-screen-md w-full py-12">
         <div class="mx-8 text-gray-500">
           <h2 class="mb-4">
-            7 Day Forecast
+            {{ $t('7-days-forecast') }}
           </h2>
           <div
             v-for="dayData in weatherData.daily"
@@ -122,7 +121,7 @@
           size="32"
         />
         <p>
-          Remove the city
+          {{ $t('remove-city') }}
         </p>
       </div>
     </section>

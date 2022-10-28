@@ -1,44 +1,11 @@
 <template>
   <div>
-    <section v-if="false">
-      <input
-        @input="callApi"
-        v-model="search"
-        type="text"
-        placeholder="Search for a City or State ..."
-        class="mt-4 input input-bordered w-full max-w-xs"
-      >
-      <ul
-        v-if="searchResults"
-        class="absolute bg-transparent text-primary w-full shadow-md py-2 px-1 top-[166px]"
-      >
-        <li
-          v-if="noResults"
-          class="py-2 cursor-pointer"
-        >
-          No results
-        </li>
-        <template v-else>
-          <li
-            v-for="result in searchResults"
-            :key="result.id"
-            class="py-2 cursor-pointer"
-          >
-            {{ result.place_name }}
-          </li>
-        </template>
-      </ul>
-      <div>
-        Latitude: {{ coords.latitude }}
-        Longitude: {{ coords.longitude }}
-      </div>
-    </section>
     <section>
       <Autocomplete
         v-model="search"
         :items="searchResults"
         clearable
-        placeholder="Search for a City or State ..."
+        :placeholder="$t('search-city-state')"
         @input="callApi"
         @selected="previewCity"
       />
@@ -46,7 +13,7 @@
         class="py-2 cursor-pointer text-slate-500 italic hover:underline"
         v-if="noResults"
       >
-        No results
+        {{ $t('no-results') }}
       </p>
     </section>
   </div>

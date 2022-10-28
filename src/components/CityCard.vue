@@ -33,7 +33,7 @@
           class="btn btn-outline btn-primary mt-4"
           @click="$emit('more-details', location)"
         >
-          More details
+          {{ $t('more-details') }}
         </button>
       </div>
     </div>

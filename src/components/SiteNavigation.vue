@@ -9,14 +9,14 @@
       >
         <div class="flex items-center gap-3 text-warning text-2xl">
           <p class="text-2xl font-sans text-white dark:text-primary">
-            The Local Weather
+            {{ $t('app-title') }}
           </p>
         </div>
       </router-link>
       <div class="flex gap-3 flex-1 text-xl justify-end text-white">
         <div
           class="tooltip tooltip-bottom"
-          data-tip="More info"
+          :data-tip="$t('more-info')"
         >
           <mdicon
             @click="onOpenModal"
@@ -27,7 +27,7 @@
         </div>
         <div
           class="tooltip tooltip-bottom"
-          data-tip="Add"
+          :data-tip="$t('add-city')"
         >
           <mdicon
             @click="addCity"
