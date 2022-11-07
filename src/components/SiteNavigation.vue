@@ -41,7 +41,7 @@
     </nav>
     <Modal
       :open="openModal"
-      title="About"
+      :title="$t('about')"
       @close="openModal = false"
     />
   </header>

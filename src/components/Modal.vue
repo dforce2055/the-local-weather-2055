@@ -21,35 +21,28 @@
         </p>
         <section>
           <p class="mb-4">
-            The Local Weather allows you to track the current and
-            future weather of cities of your choosing.
+            {{ $t('modal-title') }}
           </p>
           <h3 class="text-lg font-bold">
-            How it works:
+            {{ $t('how-it-works') }}:
           </h3>
           <ol class="list-decimal list-inside mb-4">
             <li>
-              Search for your city by entering the name into the
-              search bar.
+              {{ $t('search-for-city') }}
             </li>
             <li>
-              Select a city within the results, this will take
-              you to the current weather for your selection.
+              {{ $t('select-city') }}
             </li>
             <li>
-              Track the city by clicking on the "+" icon in the
-              top right. This will save the city to view at a
-              later time on the home page.
+              {{ $t('track-city') }}
             </li>
           </ol>
 
           <h3 class="text-lg font-bold">
-            Removing a city
+            {{ $t('removing-city') }}
           </h3>
           <p>
-            If you no longer wish to track a city, simply select
-            the city within the home page. At the bottom of the
-            page, there will be am option to delete the city.
+            {{ $t('untrack-city') }}
           </p>
         </section>
       </div>

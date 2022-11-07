@@ -5,6 +5,7 @@
   "add": "Agregar",
   "add-city": "Agregar ciudad",
   "remove-city": "Eliminar ciudad",
+  "removing-city": "Eliminando una ciudad",
   "more-details": "Más detalles",
   "no-locations-added": "No hay ubicaciones agregadas. Para comenzar a seguir una ubicación, busque en el campo a continuación.",
   "start-tracking": "Actualmente esta previsualizando esta ciudad, haga click en el icon \"+\" para comenzar a seguir esta ciudad.",
@@ -14,5 +15,12 @@
   "no-results": "Sin resultados",
   "latitude": "Latitud",
   "longitude": "Longitud",
-  "search-city-state": "Buscar por ciudad ó estado ..."
+  "search-city-state": "Buscar por ciudad ó estado ...",
+  "modal-title": "El Tiempo Local le permite seguir el tiempo actual y el tiempo futuro de las ciudades que elijas.",
+  "how-it-works": "Como funciona",
+  "search-for-city": "Buscar por ciudad en el campo de búsqueda",
+  "select-city": "Seleccione una ciudad dentro de los resultados, esto lo llevará al clíma actual de la ciudad seleccionada.",
+  "track-city": "Agrege la ciudad a sus favoritos, haciendo click en el botón \"+\" ubicado en el borde superior derecho. Esta acción guardara la ciudad y podras verla en la pagina principal de la aplicación",
+  "untrack-city": "Si ya no quiere seguir una ciudad, simplemente seleccione la ciudad desde la pagina principal. Al final de la pagina con el detalle del clíma de la ciudad seleccionada, tendra un botón para eliminar la ciduad de sus favoritos.",
+  "about": "Acerca de"
 }
